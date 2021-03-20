@@ -11,6 +11,7 @@ import {
 import {useEffect, useState} from 'react';
 import CountryPicker from 'react-native-country-picker-modal';
 import axios from 'axios';
+import {Dimensions} from 'react-native';
 
 const getFirstRate = () => {
   axios({
@@ -25,6 +26,8 @@ const getFirstRate = () => {
       console.log(Error);
     });
 };
+
+let deviceHeight = Dimensions.get('window').height;
 
 const Home = () => {
   const [country1, setCountry1] = useState(null);
@@ -164,6 +167,7 @@ const Home = () => {
           flexDirection: 'row',
           backgroundColor: '#7c7d7c',
           borderRadius: 10,
+          height: 100,
         }}>
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
           <View
@@ -292,7 +296,13 @@ const Home = () => {
           </View>
         </View>
       </View>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={{
+          backgroundColor: '#e1e4e6',
+          borderRadius: 10,
+          height: deviceHeight - 130,
+        }}>
         <View style={styles.Container}>
           <View style={styles.Row}>
             <View style={styles.subContainer}>
@@ -410,7 +420,6 @@ const styles = StyleSheet.create({
   },
   Container: {
     padding: 10,
-    backgroundColor: '#e1e4e6',
   },
   Row: {
     flexDirection: 'row',
