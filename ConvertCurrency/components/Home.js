@@ -301,7 +301,7 @@ const Home = () => {
         style={{
           backgroundColor: '#e1e4e6',
           borderRadius: 10,
-          height: deviceHeight - 130,
+          height: deviceHeight - 120,
         }}>
         <View style={styles.Container}>
           <View style={styles.Row}>
