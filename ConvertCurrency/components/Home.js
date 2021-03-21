@@ -310,11 +310,11 @@ const Home = () => {
                 source={require('./assets/flags/gb-nir.png')}
                 style={styles.image}
               />
-              <Text style={styles.txtName}>EU</Text>
+              <Text style={styles.txtName}>United Kingdom</Text>
             </View>
             <View style={styles.subContainer}>
               <Text style={styles.txtName}>{number3}</Text>
-              <Text style={styles.txtName}>Euro</Text>
+              <Text style={styles.txtName}>GBP</Text>
             </View>
           </View>
         </View>
