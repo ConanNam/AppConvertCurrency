@@ -16,11 +16,10 @@ import {Dimensions} from 'react-native';
 const getFirstRate = () => {
   axios({
     method: 'GET',
-    url: `https://free.currconv.com/api/v7/convert?q=VND_USD&compact=ultra&apiKey=2608fe3f6633170d0f6b`,
+    url: `https://v6.exchangerate-api.com/v6/dc29e357d48d79c78c166153/latest/VND`,
   })
     .then(Response => {
-      console.log(Response.data['VND_USD']);
-      return Response.data['VND_USD'];
+      return Response.data['conversion_rates']['USD'];
     })
     .catch(Error => {
       console.log(Error);
@@ -48,117 +47,117 @@ const Home = () => {
   const [number8, setNumber8] = useState(0);
   const [number9, setNumber9] = useState(0);
   const [rate, setRate] = useState(() => getFirstRate());
-  const [rate2, setRate2] = useState();
-  const [rate3, setRate3] = useState();
-  const [rate4, setRate4] = useState();
-  const [rate5, setRate5] = useState();
-  const [rate6, setRate6] = useState();
-  const [rate7, setRate7] = useState();
-  const [rate8, setRate8] = useState();
+  // const [rate2, setRate2] = useState();
+  // const [rate3, setRate3] = useState();
+  // const [rate4, setRate4] = useState();
+  // const [rate5, setRate5] = useState();
+  // const [rate6, setRate6] = useState();
+  // const [rate7, setRate7] = useState();
+  // const [rate8, setRate8] = useState();
 
   useEffect(() => {
     axios({
       method: 'GET',
-      url: `https://free.currconv.com/api/v7/convert?q=${currency1}_${currency2}&compact=ultra&apiKey=b6366a77f18ab64db900`,
+      url: `https://v6.exchangerate-api.com/v6/dc29e357d48d79c78c166153/latest/${currency1}`,
     })
       .then(Response => {
-        setRate(Response.data[`${currency1}_${currency2}`]);
-      })
-      .catch(Error => {
-        console.log(Error);
-      });
-  }, [currency1, currency2]);
-
-  useEffect(() => {
-    axios({
-      method: 'GET',
-      url: `https://free.currconv.com/api/v7/convert?q=${currency1}_GBP&compact=ultra&apiKey=b6366a77f18ab64db900`,
-    })
-      .then(Response => {
-        setRate2(Response.data[`${currency1}_GBP`]);
+        setRate(Response.data['conversion_rates']);
       })
       .catch(Error => {
         console.log(Error);
       });
   }, [currency1]);
 
-  useEffect(() => {
-    axios({
-      method: 'GET',
-      url: `https://free.currconv.com/api/v7/convert?q=${currency1}_CNY&compact=ultra&apiKey=b6366a77f18ab64db900`,
-    })
-      .then(Response => {
-        setRate3(Response.data[`${currency1}_CNY`]);
-      })
-      .catch(Error => {
-        console.log(Error);
-      });
-  }, [currency1]);
+  // useEffect(() => {
+  //   axios({
+  //     method: 'GET',
+  //     url: `https://free.currconv.com/api/v7/convert?q=${currency1}_GBP&compact=ultra&apiKey=b6366a77f18ab64db900`,
+  //   })
+  //     .then(Response => {
+  //       setRate2(Response.data[`${currency1}_GBP`]);
+  //     })
+  //     .catch(Error => {
+  //       console.log(Error);
+  //     });
+  // }, [currency1]);
 
-  useEffect(() => {
-    axios({
-      method: 'GET',
-      url: `https://free.currconv.com/api/v7/convert?q=${currency1}_JPY&compact=ultra&apiKey=b6366a77f18ab64db900`,
-    })
-      .then(Response => {
-        setRate4(Response.data[`${currency1}_JPY`]);
-      })
-      .catch(Error => {
-        console.log(Error);
-      });
-  }, [currency1]);
+  // useEffect(() => {
+  //   axios({
+  //     method: 'GET',
+  //     url: `https://free.currconv.com/api/v7/convert?q=${currency1}_CNY&compact=ultra&apiKey=b6366a77f18ab64db900`,
+  //   })
+  //     .then(Response => {
+  //       setRate3(Response.data[`${currency1}_CNY`]);
+  //     })
+  //     .catch(Error => {
+  //       console.log(Error);
+  //     });
+  // }, [currency1]);
 
-  useEffect(() => {
-    axios({
-      method: 'GET',
-      url: `https://free.currconv.com/api/v7/convert?q=${currency1}_CAD&compact=ultra&apiKey=b6366a77f18ab64db900`,
-    })
-      .then(Response => {
-        setRate5(Response.data[`${currency1}_CAD`]);
-      })
-      .catch(Error => {
-        console.log(Error);
-      });
-  }, [currency1]);
+  // useEffect(() => {
+  //   axios({
+  //     method: 'GET',
+  //     url: `https://free.currconv.com/api/v7/convert?q=${currency1}_JPY&compact=ultra&apiKey=b6366a77f18ab64db900`,
+  //   })
+  //     .then(Response => {
+  //       setRate4(Response.data[`${currency1}_JPY`]);
+  //     })
+  //     .catch(Error => {
+  //       console.log(Error);
+  //     });
+  // }, [currency1]);
 
-  useEffect(() => {
-    axios({
-      method: 'GET',
-      url: `https://free.currconv.com/api/v7/convert?q=${currency1}_AUD&compact=ultra&apiKey=b6366a77f18ab64db900`,
-    })
-      .then(Response => {
-        setRate6(Response.data[`${currency1}_AUD`]);
-      })
-      .catch(Error => {
-        console.log(Error);
-      });
-  }, [currency1]);
+  // useEffect(() => {
+  //   axios({
+  //     method: 'GET',
+  //     url: `https://free.currconv.com/api/v7/convert?q=${currency1}_CAD&compact=ultra&apiKey=b6366a77f18ab64db900`,
+  //   })
+  //     .then(Response => {
+  //       setRate5(Response.data[`${currency1}_CAD`]);
+  //     })
+  //     .catch(Error => {
+  //       console.log(Error);
+  //     });
+  // }, [currency1]);
 
-  useEffect(() => {
-    axios({
-      method: 'GET',
-      url: `https://free.currconv.com/api/v7/convert?q=${currency1}_RUB&compact=ultra&apiKey=b6366a77f18ab64db900`,
-    })
-      .then(Response => {
-        setRate7(Response.data[`${currency1}_RUB`]);
-      })
-      .catch(Error => {
-        console.log(Error);
-      });
-  }, [currency1]);
+  // useEffect(() => {
+  //   axios({
+  //     method: 'GET',
+  //     url: `https://free.currconv.com/api/v7/convert?q=${currency1}_AUD&compact=ultra&apiKey=b6366a77f18ab64db900`,
+  //   })
+  //     .then(Response => {
+  //       setRate6(Response.data[`${currency1}_AUD`]);
+  //     })
+  //     .catch(Error => {
+  //       console.log(Error);
+  //     });
+  // }, [currency1]);
 
-  useEffect(() => {
-    axios({
-      method: 'GET',
-      url: `https://free.currconv.com/api/v7/convert?q=${currency1}_SGD&compact=ultra&apiKey=b6366a77f18ab64db900`,
-    })
-      .then(Response => {
-        setRate8(Response.data[`${currency1}_SGD`]);
-      })
-      .catch(Error => {
-        console.log(Error);
-      });
-  }, [currency1]);
+  // useEffect(() => {
+  //   axios({
+  //     method: 'GET',
+  //     url: `https://free.currconv.com/api/v7/convert?q=${currency1}_RUB&compact=ultra&apiKey=b6366a77f18ab64db900`,
+  //   })
+  //     .then(Response => {
+  //       setRate7(Response.data[`${currency1}_RUB`]);
+  //     })
+  //     .catch(Error => {
+  //       console.log(Error);
+  //     });
+  // }, [currency1]);
+
+  // useEffect(() => {
+  //   axios({
+  //     method: 'GET',
+  //     url: `https://free.currconv.com/api/v7/convert?q=${currency1}_SGD&compact=ultra&apiKey=b6366a77f18ab64db900`,
+  //   })
+  //     .then(Response => {
+  //       setRate8(Response.data[`${currency1}_SGD`]);
+  //     })
+  //     .catch(Error => {
+  //       console.log(Error);
+  //     });
+  // }, [currency1]);
 
   return (
     <>
@@ -209,14 +208,14 @@ const Home = () => {
               value={number1.toString()}
               onChangeText={val => {
                 setNumber1(val);
-                setNumber2((val * rate).toFixed(2));
-                setNumber3((val * rate2).toFixed(2));
-                setNumber4((val * rate3).toFixed(2));
-                setNumber5((val * rate4).toFixed(2));
-                setNumber6((val * rate5).toFixed(2));
-                setNumber7((val * rate6).toFixed(2));
-                setNumber8((val * rate7).toFixed(2));
-                setNumber9((val * rate8).toFixed(2));
+                setNumber2((val * rate[`${currency2}`]).toFixed(2));
+                setNumber3((val * rate['GBP']).toFixed(2));
+                setNumber4((val * rate['CNY']).toFixed(2));
+                setNumber5((val * rate['JPY']).toFixed(2));
+                setNumber6((val * rate['CAD']).toFixed(2));
+                setNumber7((val * rate['AUD']).toFixed(2));
+                setNumber8((val * rate['RUB']).toFixed(2));
+                setNumber9((val * rate['SGD']).toFixed(2));
               }}
             />
             <Text style={{color: 'white'}}>{currency1}</Text>
@@ -235,8 +234,8 @@ const Home = () => {
               setNumber1(number2);
               setCountryCode2(tempCode1);
               setNameCountry2(tempName1);
-              setCurrency2(tempCurrency1);
               setNumber2(tempNum);
+              setCurrency2(tempCurrency1);
             }}>
             <Image
               source={require('./assets/swap-horizontal.png')}
@@ -289,7 +288,7 @@ const Home = () => {
               value={number2.toString()}
               onChangeText={val => {
                 setNumber2(val);
-                setNumber1((val / rate).toFixed(2));
+                setNumber1((val / rate[`${currency2}`]).toFixed(2));
               }}
             />
             <Text style={{color: 'white'}}>{currency2}</Text>
